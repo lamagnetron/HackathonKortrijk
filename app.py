@@ -35,8 +35,7 @@ ID_SOURCE = r"^[A-Z0-9][A-Z0-9-]{2,60}$"
 ID_SESSION = r"^S-[A-F0-9]{12}$"
 ID_CLIENT = r"^[a-z0-9-]{3,40}$"
 DEMO_CONTROLS = os.environ.get("PARALLAX_DEMO_CONTROLS", "1") == "1"
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "[::1]", "testserver"] + [
-    host.strip() for host in os.environ.get("PARALLAX_ALLOWED_HOSTS", "").split(",") if host.strip()]
+ALLOWED_HOSTS = ["*"]
 SESSION_MAX_AGE = timedelta(hours=12)
 
 login_by_name = auth.RateLimiter(5, 300)
